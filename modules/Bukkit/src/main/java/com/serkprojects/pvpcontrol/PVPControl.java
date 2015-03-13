@@ -38,14 +38,6 @@ import java.util.UUID;
 public class PVPControl extends JavaPlugin {
 
     /**
-     * Returns the static instance of the plugin
-     *
-     * @return the static instance of the plugin
-     */
-    @Getter
-    private static PVPControl plugin = null;
-
-    /**
      * Returns the player tracker
      *
      * @return the player tracker
@@ -73,9 +65,6 @@ public class PVPControl extends JavaPlugin {
     public void onEnable() {
         super.onEnable();
 
-        saveDefaultConfig();
-
-        plugin = this;
         tracker = new PlayerTracker(this);
 
         untag = new UnTagTask(getTracker()).runTaskTimer(this, 1, 1);
@@ -90,8 +79,8 @@ public class PVPControl extends JavaPlugin {
 
         getCommand("pvp").setExecutor(new PvpCmd(this));
 
-        if(plugin.getData().get("pvpEnabled") != null) {
-            List<String> pvpEnabledPlayersList = (List<String>) plugin.getData().get("pvpEnabled");
+        if(getData().get("pvpEnabled") != null) {
+            List<String> pvpEnabledPlayersList = (List<String>) getData().get("pvpEnabled");
 
             for(String pvpString: pvpEnabledPlayersList) {
                 String[] splitString = pvpString.split(":");
@@ -104,11 +93,12 @@ public class PVPControl extends JavaPlugin {
     }
 
     public void onDisable() {
-        plugin.getData().set("pvpEnabled", plugin.getTracker().getPvpEnabled());
+        getData().set("pvpEnabled", getTracker().getPvpEnabled());
 
-        plugin = null;
         tracker = null;
         untag.cancel();
+
+        untag = null;
 
         super.onDisable();
     }
