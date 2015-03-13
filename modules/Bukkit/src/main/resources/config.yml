@@ -1,0 +1,70 @@
+# ${project.build.finalName} Config
+
+# Version
+version: 1.0
+
+# Settings
+settings:
+
+  # The prefix to use for permissions
+  permissionPrefix: ${project.permissionprefix}
+
+  # Should extra information be logged? (Only useful for bug testing)
+  debug: false
+
+  # What language should be used when sending messages?
+  language: en
+
+  # What prefix should be used for the plugin? | {name} is replaced with the plugin name
+  prefix: "&f[&r&b{name}&r&f]"
+
+  # PVP section
+  pvp:
+    # Should the plugin handle pvp?
+    enabled: true
+    # How long should a player be pvp tagged for? Time in ticks, 1 sec  = 20 ticks
+    pvp-tag-length: 300
+    # Should players be informed on the status of their pvp upon login?
+    inform-pvp-status-login: false
+    
+    # Consequenses
+    consequenses:
+      # Should players be punished for doing certain things while tagged?
+      enabled: true
+      # Should a player be killed when pvp logging?
+      pvp-log: true
+      # Should other tagged players be informed of pvp logging?
+      inform-pvp-logging: true
+    
+    # PVP settings for world
+    world:
+      # Should the plugin handle pvp in this world?
+      enabled: true
+      
+      # Should pvp be forced and not togglable?
+      force-pvp: false
+
+      # What status should be default?
+      defaultStatus: true
+      
+      # Should commands be disabled when a player is pvp tagged?
+      disable-commands: true
+      # What commands should be disabled?
+      disabled-commands:
+      - tp
+      - tpa
+      - quit
+      - ragequit
+      - warp
+      - home
+      - world
+    
+      # Should flying players be unable to pvp?
+      disable-flying-pvp: true
+      # Allow When both players are flying?
+      allow-double-flying-pvp: true
+      # Should flying players be protected from pvp?
+      protect-flying-players: false
+    
+      # Should creative players not be able to pvp?
+      disable-creative-pvp: true

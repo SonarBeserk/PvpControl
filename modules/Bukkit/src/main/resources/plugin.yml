@@ -1,0 +1,37 @@
+name: ${project.build.finalName}
+version: ${project.version}
+authors: [${project.authors}]
+main: ${project.main}
+softdepend: [${project.softdepends}]
+
+commands:
+  ${project.name.lowercase}:
+    description: master command system for the plugin
+    usage: "${project.name.short} Usage: /${project.name.short} help"
+    aliases: [${project.name.short}]
+
+  pvp:
+    description: lets you control your pvp status
+    usage: "Pvp Usage: /pvp help"
+permissions:
+  ${project.permissionprefix}.commands.status:
+    descripton: Lets a sender check their pvp status
+    default: true
+  ${project.permissionprefix}.others.status:
+    description: Lets a sender check other player's pvp statuses
+    default: op
+  ${project.permissionprefix}.commands.enable:
+    description: Allows a sender to enable pvp
+    default: true
+  ${project.permissionprefix}.others.enable:
+    description: Lets a sender enable pvp for another player
+    default: op
+  ${project.permissionprefix}.commands.disable:
+    description: Allows a sender to disable pvp
+    default: true
+  ${project.permissionprefix}.others.disable:
+    description: Lets a sender disable pvp for another player
+    default: op
+  ${project.permissionprefix}.commands.reload:
+    descripton: Allows a sender to reload the config
+    default: op

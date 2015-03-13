@@ -1,0 +1,109 @@
+# Default Language File
+
+# Version
+version: "1.0"
+
+# Usage
+
+# Usage for the plugin master command | {name} - the name of the plugin
+usageMain: "&7Available Subcommands: reload - reloads the config"
+
+# Usage for the pvp command
+usagePvp: "&7Available Subcommands: \n () = Extended Syntax \n status (playerName) (worldName) - lets your pvp status \n enable (playerName) (worldName) - enables pvp \n disable (playerName) (worldName) - disables pvp"
+
+# Missing Version
+
+# Sent when a version can not be found in the config file
+missingVersionConfig: "&cNo version was found in the config file! Please report this issue to the plugin developer!"
+
+# Sent when the latest version for the config can not be found in the latest versions file
+missingVersionLatestConfig: "&cNo version was found for the config in the latest versions file! Please report this issue to the plugin developer!"
+
+# Sent when a version can not be found in the language file
+missingVersionLanguage: "&cNo version was found in the language file! Please report this issue to the plugin developer if this is a default language file!"
+
+# Sent when the latest version for the language file can not be found in the latest versions file
+missingVersionLatestLanguage: "&cNo version was found for the language file in the latest versions file! Please report this issue to the plugin developer!"
+
+# Out of date
+
+# Sent when the config file being run is out of date
+outOfDateConfig: "&cThe version of the config file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)"
+
+# Sent when the language file being run is out of date
+outOfDateLanguage: "&cThe version of the language file being run is out of date! Please delete the file and reload the plugin to generate the new version! (Backup the old version first!)"
+
+# General
+
+# Sent when a sender lacks permission to do something
+noPermission: "&cYou do not have permission to do that!"
+
+# Sent when the config is reloaded
+reloaded: "&7The configuration has been reloaded!"
+
+# Sent when a player is required for a command
+commandPlayerRequired: "You must be a player to use this command!"
+
+# Sent when a player can not be found | {name} - the name of the player
+playerNotFound: "&b{name} &ccan not be found!"
+
+# Sent when a tagged player is stopped from using a command | {name} - the name of the command
+canNotUseCommand: "&cYou are not allowed to use the command {name} while you pvp!"
+
+# Sent when trying to pvp in creative while it is disabled
+canNotCreativePvp: "&cYou are not allowed to pvp in creative mode!"
+
+# Sent when trying to flying pvp while it is disabled
+canNotFlyPvp: "&cYou are not allowed to pvp while flying!"
+
+# Sent when trying to pvp a flying player when it is disabled
+canNotPvpFlying: "&cYou are not allowed to pvp a flying player!"
+
+# Sent when trying to pvp in a world pvp is disabled
+canNotPvp: "&cYou are not allowed to pvp in this world!"
+
+# Sent when trying to pvp with pvp disabled
+pvpNotEnabled: "&cYou do not have pvp enabled!"
+
+# Sent when trying to pvp a player with pvp disabled
+canNotPvpNotEnabled: "&cYou are not allowed to pvp a player whose pvp is disabled!"
+
+# Sent a player is tagged
+tagged: "&cYou have entered pvp combat!"
+
+# Sent when a player is untagged
+untagged: "&2You have left pvp combat!"
+
+# Pvp
+
+# Sent when informing a player of pvp status on login | {pvp} - the pvp status | {world} - the name of the world
+pvpStatus: "&cYour pvp is set to {pvp} in world {world}!"
+
+# Sent when informing a sender of setting a pvp status | {name} - the name of the player | {dispname} - the display name of the player | {pvp} - the pvp status | {world} - the name of the world
+pvpStatusSet: "&2{dispname}'s status is currently set to {pvp} in world {world}"
+
+# Sent to pvp enabled players when a player pvp logs and has no items | {name} - the name of the player | {dispname} - the display name of the player
+pvpLogEmpty: "&c{dispname} has pvp logged!"
+
+# Sent to pvp enabled players when a player pvp logs and has items | {name} - the name of the player | {dispname} - the display name of the player
+pvpLogItems: "&c{dispname} has pvp logged, their items are up for grabs!"
+
+# Already
+
+# Sent when a player already has pvp enabled | {world} - the name of the world
+alreadyEnabled: "&cYou already have pvp enabled in {world}!"
+
+# Sent when a player already has pvp disabled | {world} - the name of the world
+alreadyDisabled: "&cYour already have pvp disabled in {world}!"
+
+# Sent when a player already has pvp enabled and a sender tries to enable pvp | {name} - the name of the player | {world} - the name of the world
+alreadyEnabledPlayer: "&c{name}'s pvp is already enabled in {world}!"
+
+# Sent when a player already has pvp disabled and a sender tries to disable pvp | {name} - the name of the player | {world} - the name of the world
+alreadyDisabledPlayer: "&c{name}'s pvp is already disabled in {world}!"
+
+# Sent when a sender has to use the extended version of a command
+mustUseExtended: "You must use the extended version of this command! Use /pvp help for help."
+
+# Sent when a subcommand is used but not recognized
+unknownSubcommand: "&cUnknown subcommand or incomplete command! Use /pvp help for help."
