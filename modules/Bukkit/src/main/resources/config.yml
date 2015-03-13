@@ -36,13 +36,13 @@ settings:
       # Should other tagged players be informed of pvp logging?
       informPvpLogging: true
     
-    # PVP settings for world
+    # PVP settings for world named world
     world:
       # Should the plugin handle pvp in this world?
       enabled: true
       
-      # Should pvp be forced and not togglable?
-      forcePvp: false
+      # Should pvp be required and not togglable?
+      requirePvp: false
 
       # What status should be default?
       defaultStatus: true

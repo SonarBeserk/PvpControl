@@ -109,6 +109,11 @@ public class PvpCmd implements CommandExecutor {
 
             Player senderPlayer = (Player) sender;
 
+            if (plugin.getConfig().getBoolean("settings.pvp." + senderPlayer.getWorld().getName() + ".requirePvp")) {
+                plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("pvpRequired"));
+                return;
+            }
+
             if (!plugin.getTracker().pvpEnabled(senderPlayer.getUniqueId(), senderPlayer.getWorld().getUID())) {
                 plugin.getTracker().enablePVP(senderPlayer.getUniqueId(), senderPlayer.getWorld().getUID());
                 plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("pvpStatus").replace("{world}", senderPlayer.getWorld().getName()).replace("{pvp}", String.valueOf(plugin.getTracker().pvpEnabled(senderPlayer.getUniqueId(), senderPlayer.getWorld().getUID()))));
@@ -130,6 +135,11 @@ public class PvpCmd implements CommandExecutor {
 
                 if(player == null) {
                     plugin.getMessaging().sendMessage(sender, false, plugin.getLanguage().getMessage("playerNotFound").replace("{name}", args[1]));
+                    return;
+                }
+
+                if (plugin.getConfig().getBoolean("settings.pvp." + player.getWorld().getName() + ".requirePvp")) {
+                    plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("pvpRequiredPlayer"));
                     return;
                 }
 
@@ -158,6 +168,11 @@ public class PvpCmd implements CommandExecutor {
 
             Player senderPlayer = (Player) sender;
 
+            if (plugin.getConfig().getBoolean("settings.pvp." + senderPlayer.getWorld().getName() + ".requirePvp")) {
+                plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("pvpRequired"));
+                return;
+            }
+
             if (plugin.getTracker().pvpEnabled(senderPlayer.getUniqueId(), plugin.getServer().getPlayer(sender.getName()).getWorld().getUID())) {
                 plugin.getTracker().disablePVP(senderPlayer.getUniqueId(), plugin.getServer().getPlayer(sender.getName()).getWorld().getUID());
                 plugin.getMessaging().sendMessage(sender, true, plugin.getConfig().getString("pvpStatus").replace("{world}", senderPlayer.getWorld().getName()).replace("{pvp}", String.valueOf(plugin.getTracker().pvpEnabled(senderPlayer.getUniqueId(), senderPlayer.getWorld().getUID()))));
@@ -179,6 +194,11 @@ public class PvpCmd implements CommandExecutor {
 
                 if(player == null) {
                     plugin.getMessaging().sendMessage(sender, false, plugin.getLanguage().getMessage("playerNotFound").replace("{name}", args[1]));
+                    return;
+                }
+
+                if (plugin.getConfig().getBoolean("settings.pvp." + player.getWorld().getName() + ".requirePvp")) {
+                    plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("pvpRequiredPlayer"));
                     return;
                 }
 

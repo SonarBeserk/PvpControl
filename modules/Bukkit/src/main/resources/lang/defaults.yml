@@ -88,6 +88,12 @@ pvpLogEmpty: "&c{dispname} has pvp logged!"
 # Sent to pvp enabled players when a player pvp logs and has items | {name} - the name of the player | {dispname} - the display name of the player
 pvpLogItems: "&c{dispname} has pvp logged, their items are up for grabs!"
 
+# Sent when pvp is required in a world and may not be toggled
+pvpRequired: "&cPvp is required in this world and may not be toggled!"
+
+# Sent when pvp is required in a player's world and may not be toggled
+pvpRequiredPlayer: "&cPvp is required in this player's world and may not be toggled!"
+
 # Already
 
 # Sent when a player already has pvp enabled | {world} - the name of the world

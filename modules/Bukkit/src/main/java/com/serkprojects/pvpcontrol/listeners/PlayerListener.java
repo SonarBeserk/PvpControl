@@ -103,7 +103,7 @@ public class PlayerListener implements Listener {
             return;
         }
 
-        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".forcePvp")) {
+        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".requirePvp")) {
             plugin.getTracker().enablePVP(damagedPlayer.getUniqueId(), damagedPlayer.getWorld().getUID());
             plugin.getTracker().enablePVP(damagingPlayer.getUniqueId(), damagingPlayer.getWorld().getUID());
         }

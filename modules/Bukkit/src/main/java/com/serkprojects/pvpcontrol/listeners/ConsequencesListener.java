@@ -41,11 +41,7 @@ public class ConsequencesListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void pvpLog(PlayerQuitEvent e) {
-        if (!plugin.getConfig().getBoolean("settings.pvp.consequences.pvpLog")) {
-            return;
-        }
-
-        if (!plugin.getTracker().isTagged(e.getPlayer().getUniqueId(), e.getPlayer().getWorld().getUID())) {
+        if (!plugin.getConfig().getBoolean("settings.pvp.consequences.pvpLog") || !plugin.getTracker().isTagged(e.getPlayer().getUniqueId(), e.getPlayer().getWorld().getUID())) {
             return;
         }
 
