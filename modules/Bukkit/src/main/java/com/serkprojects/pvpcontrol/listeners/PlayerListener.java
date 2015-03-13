@@ -44,7 +44,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void join(PlayerJoinEvent e) {
-        if (plugin.getConfig().getBoolean("settings.pvp.inform-pvp-status-login")) {
+        if (plugin.getConfig().getBoolean("settings.pvp.informPvpStatusLogin")) {
             if(plugin.getConfig().getBoolean("settings.pvp.world.defaultStatus")) {
                 plugin.getTracker().enablePVP(e.getPlayer().getUniqueId(), e.getPlayer().getWorld().getUID());
             }
@@ -60,8 +60,8 @@ public class PlayerListener implements Listener {
             return;
         }
 
-        if (plugin.getConfig().getBoolean("settings.pvp." + e.getPlayer().getWorld().getName() + ".disable-commands")) {
-            for (String disabledCommand : plugin.getConfig().getStringList("settings.pvp." + e.getPlayer().getWorld().getName() + ".disabled-commands")) {
+        if (plugin.getConfig().getBoolean("settings.pvp." + e.getPlayer().getWorld().getName() + ".disableCommands")) {
+            for (String disabledCommand : plugin.getConfig().getStringList("settings.pvp." + e.getPlayer().getWorld().getName() + ".disabledCommands")) {
                 String[] split = e.getMessage().replace("/", "").split(" +");
 
                 if (split[0].equalsIgnoreCase(disabledCommand)) {
@@ -103,7 +103,7 @@ public class PlayerListener implements Listener {
             return;
         }
 
-        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".force-pvp")) {
+        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".forcePvp")) {
             plugin.getTracker().enablePVP(damagedPlayer.getUniqueId(), damagedPlayer.getWorld().getUID());
             plugin.getTracker().enablePVP(damagingPlayer.getUniqueId(), damagingPlayer.getWorld().getUID());
         }
@@ -120,7 +120,7 @@ public class PlayerListener implements Listener {
             return;
         }
 
-        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".disable-creative-pvp")) {
+        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".disableCreativePvp")) {
             if (damagingPlayer.getGameMode() == GameMode.CREATIVE) {
                 plugin.getMessaging().sendMessage(damagingPlayer, false, plugin.getLanguage().getMessage("canNotCreativePvp"));
                 e.setCancelled(true);
@@ -128,7 +128,7 @@ public class PlayerListener implements Listener {
             }
         }
 
-        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".disable-flying-pvp")) {
+        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".disableFlyingPvp")) {
             if (damagingPlayer.isFlying() && !damagedPlayer.isFlying()) {
                 plugin.getMessaging().sendMessage(damagingPlayer, false, plugin.getLanguage().getMessage("canNotFlyPvp"));
                 e.setCancelled(true);
@@ -136,7 +136,7 @@ public class PlayerListener implements Listener {
             }
         }
 
-        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".protect-flying-players")) {
+        if (plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".protectFlyingPlayers")) {
             if (!damagingPlayer.isFlying() && damagedPlayer.isFlying()) {
                 plugin.getMessaging().sendMessage(damagingPlayer, false, plugin.getLanguage().getMessage("canNotPvpFlying"));
                 e.setCancelled(true);
@@ -144,7 +144,7 @@ public class PlayerListener implements Listener {
             }
         }
 
-        if (!plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".allow-double-flying-pvp")) {
+        if (!plugin.getConfig().getBoolean("settings.pvp." + e.getEntity().getWorld().getName() + ".allowDoubleFlyingPvp")) {
             if (damagingPlayer.isFlying() && damagedPlayer.isFlying()) {
                 plugin.getMessaging().sendMessage(damagingPlayer, false, plugin.getLanguage().getMessage("canNotFlyPvp"));
                 e.setCancelled(true);

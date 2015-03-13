@@ -32,16 +32,16 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class ConsequensesListener implements Listener {
+public class ConsequencesListener implements Listener {
     private PVPControl plugin = null;
 
-    public ConsequensesListener(@NonNull PVPControl plugin) {
+    public ConsequencesListener(@NonNull PVPControl plugin) {
         this.plugin = plugin;
     }
 
     @EventHandler(ignoreCancelled = true)
     public void pvpLog(PlayerQuitEvent e) {
-        if (!plugin.getConfig().getBoolean("settings.pvp.consequenses.pvp-log")) {
+        if (!plugin.getConfig().getBoolean("settings.pvp.consequences.pvpLog")) {
             return;
         }
 

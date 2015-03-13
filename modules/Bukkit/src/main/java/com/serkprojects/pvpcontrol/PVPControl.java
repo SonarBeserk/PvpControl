@@ -24,7 +24,7 @@
 package com.serkprojects.pvpcontrol;
 
 import com.serkprojects.pvpcontrol.commands.PvpCmd;
-import com.serkprojects.pvpcontrol.listeners.ConsequensesListener;
+import com.serkprojects.pvpcontrol.listeners.ConsequencesListener;
 import com.serkprojects.pvpcontrol.listeners.PlayerListener;
 import com.serkprojects.pvpcontrol.tasks.UnTagTask;
 import com.serkprojects.pvpcontrol.trackers.PlayerTracker;
@@ -85,7 +85,7 @@ public class PVPControl extends JavaPlugin {
         }
 
         if (getConfig().getBoolean("settings.pvp.consequenses.enabled")) {
-            getServer().getPluginManager().registerEvents(new ConsequensesListener(this), this);
+            getServer().getPluginManager().registerEvents(new ConsequencesListener(this), this);
         }
 
         getCommand("pvp").setExecutor(new PvpCmd(this));

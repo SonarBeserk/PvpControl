@@ -23,18 +23,18 @@ settings:
     # Should the plugin handle pvp?
     enabled: true
     # How long should a player be pvp tagged for? Time in ticks, 1 sec  = 20 ticks
-    pvp-tag-length: 300
+    pvpTagLength: 300
     # Should players be informed on the status of their pvp upon login?
-    inform-pvp-status-login: false
+    informPvpStatusLogin: false
     
-    # Consequenses
-    consequenses:
+    # consequences
+    consequences:
       # Should players be punished for doing certain things while tagged?
       enabled: true
       # Should a player be killed when pvp logging?
-      pvp-log: true
+      pvpLog: true
       # Should other tagged players be informed of pvp logging?
-      inform-pvp-logging: true
+      informPvpLogging: true
     
     # PVP settings for world
     world:
@@ -42,15 +42,16 @@ settings:
       enabled: true
       
       # Should pvp be forced and not togglable?
-      force-pvp: false
+      forcePvp: false
 
       # What status should be default?
       defaultStatus: true
       
       # Should commands be disabled when a player is pvp tagged?
-      disable-commands: true
+      disableCommands: true
+
       # What commands should be disabled?
-      disabled-commands:
+      disabledCommands:
       - tp
       - tpa
       - quit
@@ -60,11 +61,13 @@ settings:
       - world
     
       # Should flying players be unable to pvp?
-      disable-flying-pvp: true
+      disableFlyingPvp: true
+
       # Allow When both players are flying?
-      allow-double-flying-pvp: true
+      allowDoubleFlyingPvp: true
+
       # Should flying players be protected from pvp?
-      protect-flying-players: false
+      protectFlyingPlayers: false
     
       # Should creative players not be able to pvp?
-      disable-creative-pvp: true
+      disableCreativePvp: true

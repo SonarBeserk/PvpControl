@@ -58,11 +58,11 @@ public class PlayerTracker {
      */
     public void tagPlayer(@NonNull UUID UUID, @NonNull UUID worldUUID, boolean informPlayer) {
         if (!taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
-            taggedPlayers.put(String.valueOf(UUID) + ":" + String.valueOf(worldUUID), plugin.getConfig().getInt("settings.pvp.pvp-tag-length"));
+            taggedPlayers.put(String.valueOf(UUID) + ":" + String.valueOf(worldUUID), plugin.getConfig().getInt("settings.pvp.pvpTagLength"));
         } else if (taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
-            if (taggedPlayers.get(String.valueOf(UUID) + ":" + String.valueOf(worldUUID)) < plugin.getConfig().getInt("settings.pvp.pvp-tag-length")) {
+            if (taggedPlayers.get(String.valueOf(UUID) + ":" + String.valueOf(worldUUID)) < plugin.getConfig().getInt("settings.pvp.pvpTagLength")) {
                 taggedPlayers.remove(String.valueOf(UUID) + ":" + String.valueOf(worldUUID));
-                taggedPlayers.put(String.valueOf(UUID) + ":" + String.valueOf(worldUUID), plugin.getConfig().getInt("settings.pvp.pvp-tag-length"));
+                taggedPlayers.put(String.valueOf(UUID) + ":" + String.valueOf(worldUUID), plugin.getConfig().getInt("settings.pvp.pvpTagLength"));
             }
         }
 
