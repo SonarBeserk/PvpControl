@@ -77,16 +77,16 @@ untagged: "&2You have left pvp combat!"
 # Pvp
 
 # Sent when informing a player of pvp status on login | {pvp} - the pvp status | {world} - the name of the world
-pvpStatus: "&cYour pvp is set to {pvp} in world {world}!"
+pvpStatus: "&2Your pvp is set to &b{pvp}&r&2 in world &b{world}&r&2!"
 
 # Sent when informing a sender of setting a pvp status | {name} - the name of the player | {dispname} - the display name of the player | {pvp} - the pvp status | {world} - the name of the world
-pvpStatusSet: "&2{dispname}'s status is currently set to {pvp} in world {world}"
+pvpStatusSet: "&2{dispname}&r&2's status is currently set to {pvp} in world {world}"
 
 # Sent to pvp enabled players when a player pvp logs and has no items | {name} - the name of the player | {dispname} - the display name of the player
-pvpLogEmpty: "&c{dispname} has pvp logged!"
+pvpLogEmpty: "&c{dispname}&r&c has pvp logged!"
 
 # Sent to pvp enabled players when a player pvp logs and has items | {name} - the name of the player | {dispname} - the display name of the player
-pvpLogItems: "&c{dispname} has pvp logged, their items are up for grabs!"
+pvpLogItems: "&c{dispname}&r&c has pvp logged, their items are up for grabs!"
 
 # Sent when pvp is required in a world and may not be toggled
 pvpRequired: "&cPvp is required in this world and may not be toggled!"

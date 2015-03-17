@@ -24,7 +24,6 @@
 package com.serkprojects.pvpcontrol.listeners;
 
 import com.serkprojects.pvpcontrol.PVPControl;
-import lombok.NonNull;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
@@ -34,11 +33,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerListener implements Listener {
     private PVPControl plugin;
 
-    public PlayerListener(@NonNull PVPControl plugin) {
+    public PlayerListener(PVPControl plugin) {
         this.plugin = plugin;
     }
 
@@ -163,5 +164,15 @@ public class PlayerListener implements Listener {
         } else {
             plugin.getTracker().tagPlayer(damagedPlayer.getUniqueId(), damagedPlayer.getWorld().getUID(), false);
         }
+    }
+
+    @EventHandler(ignoreCancelled = true)
+    public void playerQuit(PlayerQuitEvent e) {
+        plugin.getTracker().untagPlayer(e.getPlayer().getUniqueId(), e.getPlayer().getWorld().getUID(), false);
+    }
+
+    @EventHandler(ignoreCancelled = true)
+    public void playrKick(PlayerKickEvent e) {
+        plugin.getTracker().untagPlayer(e.getPlayer().getUniqueId(), e.getPlayer().getWorld().getUID(), false);
     }
 }

@@ -24,7 +24,6 @@
 package com.serkprojects.pvpcontrol.listeners;
 
 import com.serkprojects.pvpcontrol.PVPControl;
-import lombok.NonNull;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -35,17 +34,15 @@ import org.bukkit.inventory.ItemStack;
 public class ConsequencesListener implements Listener {
     private PVPControl plugin = null;
 
-    public ConsequencesListener(@NonNull PVPControl plugin) {
+    public ConsequencesListener(PVPControl plugin) {
         this.plugin = plugin;
     }
 
-    @EventHandler(ignoreCancelled = true)
+    @EventHandler()
     public void pvpLog(PlayerQuitEvent e) {
         if (!plugin.getConfig().getBoolean("settings.pvp.consequences.pvpLog") || !plugin.getTracker().isTagged(e.getPlayer().getUniqueId(), e.getPlayer().getWorld().getUID())) {
             return;
         }
-
-        e.getPlayer().setHealth(0);
 
         boolean emptyInventory = true;
 
@@ -68,15 +65,17 @@ public class ConsequencesListener implements Listener {
         if (emptyInventory) {
             for (Player player : plugin.getServer().getOnlinePlayers()) {
                 if (plugin.getTracker().pvpEnabled(player.getUniqueId(), player.getWorld().getUID())) {
-                    plugin.getMessaging().sendMessage(e.getPlayer(), true, plugin.getLanguage().getMessage("pvpLogEmpty").replace("{name}", e.getPlayer().getName()).replace("{dispname}", e.getPlayer().getDisplayName()));
+                    plugin.getMessaging().sendMessage(player, true, plugin.getLanguage().getMessage("pvpLogEmpty").replace("{name}", e.getPlayer().getName()).replace("{dispname}", e.getPlayer().getDisplayName()));
                 }
             }
         } else {
             for (Player player : plugin.getServer().getOnlinePlayers()) {
                 if (plugin.getTracker().pvpEnabled(player.getUniqueId(), player.getWorld().getUID())) {
-                    plugin.getMessaging().sendMessage(e.getPlayer(), true, plugin.getLanguage().getMessage("pvpLogItems").replace("{name}", e.getPlayer().getName()).replace("{dispname}", e.getPlayer().getDisplayName()));
+                    plugin.getMessaging().sendMessage(player, true, plugin.getLanguage().getMessage("pvpLogItems").replace("{name}", e.getPlayer().getName()).replace("{dispname}", e.getPlayer().getDisplayName()));
                 }
             }
         }
+        
+        e.getPlayer().setHealth(0);
     }
 }

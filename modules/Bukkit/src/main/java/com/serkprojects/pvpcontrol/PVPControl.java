@@ -73,7 +73,7 @@ public class PVPControl extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         }
 
-        if (getConfig().getBoolean("settings.pvp.consequenses.enabled")) {
+        if (getConfig().getBoolean("settings.pvp.consequences.enabled")) {
             getServer().getPluginManager().registerEvents(new ConsequencesListener(this), this);
         }
 

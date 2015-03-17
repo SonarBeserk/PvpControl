@@ -24,7 +24,6 @@
 package com.serkprojects.pvpcontrol.commands;
 
 import com.serkprojects.pvpcontrol.PVPControl;
-import lombok.NonNull;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,7 +34,7 @@ import java.util.UUID;
 public class PvpCmd implements CommandExecutor {
     private PVPControl plugin;
 
-    public PvpCmd(@NonNull PVPControl plugin) {
+    public PvpCmd(PVPControl plugin) {
         this.plugin = plugin;
     }
 
@@ -73,7 +72,7 @@ public class PvpCmd implements CommandExecutor {
         return true;
     }
 
-    private void helpSubCommand(@NonNull CommandSender sender) {
+    private void helpSubCommand(CommandSender sender) {
         plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("usagePvp").replace("{name}", plugin.getDescription().getName()));
     }
 
@@ -84,8 +83,13 @@ public class PvpCmd implements CommandExecutor {
         }
 
         if (args.length == 1) {
-            plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("mustUseExtended"));
-            return;
+            if (!(sender instanceof Player)) {
+                plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("mustUseExtended"));
+                return;
+            }
+
+            Player senderPlayer = (Player) sender;
+            plugin.getMessaging().sendMessage(sender, true, plugin.getLanguage().getMessage("pvpStatus").replace("{world}", senderPlayer.getWorld().getName()).replace("{pvp}", String.valueOf(plugin.getTracker().pvpEnabled(senderPlayer.getUniqueId(), senderPlayer.getWorld().getUID()))));
         }
 
         if (args.length > 1) {
