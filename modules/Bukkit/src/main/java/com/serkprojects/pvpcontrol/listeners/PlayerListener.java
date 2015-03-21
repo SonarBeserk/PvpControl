@@ -78,6 +78,8 @@ public class PlayerListener implements Listener {
     public void damageEvent(EntityDamageByEntityEvent e) {
         if (e.getEntity() == null || e.getDamager() == null || e.getEntity().getType() != EntityType.PLAYER || e.getDamager().getType() != EntityType.PLAYER && e.getDamager().getType() != EntityType.ARROW) {return;}
 
+        if(e.getDamage() == 0) {return;}
+
         Player damagingPlayer;
 
         if(e.getDamager().getType() == EntityType.ARROW) {
