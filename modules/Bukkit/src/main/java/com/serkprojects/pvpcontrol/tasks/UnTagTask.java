@@ -24,7 +24,6 @@
 package com.serkprojects.pvpcontrol.tasks;
 
 import com.serkprojects.pvpcontrol.trackers.PlayerTracker;
-import lombok.NonNull;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.UUID;
@@ -32,7 +31,7 @@ import java.util.UUID;
 public class UnTagTask extends BukkitRunnable {
     private PlayerTracker tracker;
 
-    public UnTagTask(@NonNull PlayerTracker tracker) {
+    public UnTagTask(PlayerTracker tracker) {
         this.tracker = tracker;
     }
 

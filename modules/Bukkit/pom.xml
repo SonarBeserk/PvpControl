@@ -69,7 +69,11 @@
                 <configuration>
                     <header>${basedir}/src/main/resources/LICENSE.txt</header>
                     <failIfMissing>true</failIfMissing>
+                    <includes>
+                        <include>**/**.java</include>
+                    </includes>
                 </configuration>
+
                 <executions>
                     <execution>
                         <phase>process-resources</phase>

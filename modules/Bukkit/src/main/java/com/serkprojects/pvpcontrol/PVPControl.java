@@ -29,20 +29,12 @@ import com.serkprojects.pvpcontrol.listeners.PlayerListener;
 import com.serkprojects.pvpcontrol.tasks.UnTagTask;
 import com.serkprojects.pvpcontrol.trackers.PlayerTracker;
 import com.serkprojects.serkcore.plugin.JavaPlugin;
-import lombok.Getter;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.List;
 import java.util.UUID;
 
 public class PVPControl extends JavaPlugin {
-
-    /**
-     * Returns the player tracker
-     *
-     * @return the player tracker
-     */
-    @Getter
     private PlayerTracker tracker = null;
 
     private BukkitTask untag = null;
@@ -60,6 +52,10 @@ public class PVPControl extends JavaPlugin {
     @Override
     public String getPermissionPrefix() {
         return getConfig().getString("settings.permissionPrefix");
+    }
+
+    @Override
+    public void onReload() {
     }
 
     public void onEnable() {
@@ -90,6 +86,15 @@ public class PVPControl extends JavaPlugin {
                 tracker.enablePVP(UUID.fromString(splitString[0]), UUID.fromString(splitString[1]));
             }
         }
+    }
+
+    /**
+     * Returns the player tracker
+     *
+     * @return the player tracker
+     */
+    public PlayerTracker getTracker() {
+       return tracker;
     }
 
     public void onDisable() {

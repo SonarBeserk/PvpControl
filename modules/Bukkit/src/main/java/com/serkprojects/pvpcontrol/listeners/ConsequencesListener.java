@@ -75,7 +75,7 @@ public class ConsequencesListener implements Listener {
                 }
             }
         }
-        
+
         e.getPlayer().setHealth(0);
     }
 }

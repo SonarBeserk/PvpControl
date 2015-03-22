@@ -24,8 +24,6 @@
 package com.serkprojects.pvpcontrol.trackers;
 
 import com.serkprojects.pvpcontrol.PVPControl;
-import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.*;
 
@@ -34,11 +32,6 @@ public class PlayerTracker {
 
     private Map<String, Integer> taggedPlayers = null;
 
-    /**
-     * Returns a list of pvp enabled players
-     * @return a list of pvp enabled players
-     */
-    @Getter
     private List<String> pvpEnabled = null;
 
     public PlayerTracker(PVPControl plugin) {
@@ -50,13 +43,21 @@ public class PlayerTracker {
     }
 
     /**
+     * Returns a list of pvp enabled players
+     * @return a list of pvp enabled players
+     */
+    public List<String> getPvpEnabled() {
+       return pvpEnabled;
+    }
+
+    /**
      * Tags a player for pvp
      *
      * @param UUID   the UUID of the player to tag
      * @param worldUUID    the UUID of the world to tag them in
      * @param informPlayer should the player be notified of being tagged?
      */
-    public void tagPlayer(@NonNull UUID UUID, @NonNull UUID worldUUID, boolean informPlayer) {
+    public void tagPlayer(UUID UUID, UUID worldUUID, boolean informPlayer) {
         if (!taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
             taggedPlayers.put(String.valueOf(UUID) + ":" + String.valueOf(worldUUID), plugin.getConfig().getInt("settings.pvp.pvpTagLength"));
         } else if (taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
@@ -82,7 +83,7 @@ public class PlayerTracker {
      * @param worldUUID    the UUID of the world to untag them in
      * @param informPlayer should the player be notified of being untagged?
      */
-    public void untagPlayer(@NonNull UUID UUID, @NonNull UUID worldUUID, boolean informPlayer) {
+    public void untagPlayer(UUID UUID, UUID worldUUID, boolean informPlayer) {
         if (taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
 
             taggedPlayers.remove(String.valueOf(UUID) + ":" + String.valueOf(worldUUID));
@@ -105,7 +106,7 @@ public class PlayerTracker {
      * @param worldUUID  the UUID of the world to check
      * @return if a player is pvp tagged
      */
-    public boolean isTagged(@NonNull UUID UUID, @NonNull UUID worldUUID) {
+    public boolean isTagged(UUID UUID, UUID worldUUID) {
         return taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID));
     }
 
@@ -115,7 +116,7 @@ public class PlayerTracker {
      * @param worldUUID the UUID of the world
      * @param time the time to set the tag for
      */
-    public void setTagTime(@NonNull UUID UUID, @NonNull UUID worldUUID, int time) {
+    public void setTagTime(UUID UUID, UUID worldUUID, int time) {
         if (!taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
             taggedPlayers.put(String.valueOf(UUID) + ":" + String.valueOf(worldUUID), time);
         } else if (taggedPlayers.containsKey(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
@@ -138,7 +139,7 @@ public class PlayerTracker {
      * @param worldUUID the UUID of the world to get
      * @return
      */
-    public int remainingTagTime(@NonNull UUID UUID, @NonNull UUID worldUUID) {
+    public int remainingTagTime(UUID UUID, UUID worldUUID) {
         return taggedPlayers.get(String.valueOf(UUID) + ":" + String.valueOf(worldUUID));
     }
 
@@ -149,7 +150,7 @@ public class PlayerTracker {
      * @param worldUUID the UUID of the world to check
      * @return if the player has pvp enabled
      */
-    public boolean pvpEnabled(@NonNull UUID UUID, @NonNull UUID worldUUID) {
+    public boolean pvpEnabled(UUID UUID, UUID worldUUID) {
         return pvpEnabled.contains(String.valueOf(UUID) + ":" + String.valueOf(worldUUID));
     }
 
@@ -158,7 +159,7 @@ public class PlayerTracker {
      * @param UUID the UUID for the player
      * @param worldUUID the UUID for the world
      */
-    public void enablePVP(@NonNull UUID UUID, @NonNull UUID worldUUID) {
+    public void enablePVP(UUID UUID, UUID worldUUID) {
         if (pvpEnabled.contains(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
             return;
         }
@@ -171,7 +172,7 @@ public class PlayerTracker {
      * @param UUID the UUID for the player
      * @param worldUUID the UUID for the world
      */
-    public void disablePVP(@NonNull UUID UUID, @NonNull UUID worldUUID) {
+    public void disablePVP(UUID UUID, UUID worldUUID) {
         if (!pvpEnabled.contains(String.valueOf(UUID) + ":" + String.valueOf(worldUUID))) {
             return;
         }
