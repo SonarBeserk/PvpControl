@@ -25,8 +25,6 @@ package com.serkprojects.pvpcontrol.trackers;
 
 import com.serkprojects.pvpcontrol.PVPControl;
 
-import java.util.*;
-
 public class PlayerTracker {
     private PVPControl plugin = null;
 
